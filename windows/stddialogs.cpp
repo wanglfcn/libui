@@ -88,6 +88,18 @@ char *uiOpenFile(uiWindow *parent)
 	return res;
 }
 
+char *uiOpenDir(uiWindow *parent)
+{
+	char *res;
+	disableAllWindowsExcept(parent);
+	res = commonItemDialog(windowHWND(parent),
+			CLSID_FileOpenDialog, IID_IFileDialog,
+			FOS_NOCHANGEDIR | FOS_ALLNONSTORAGEITEMS | FOS_NOVALIDATE | FOS_PATHMUSTEXIST | FOS_FILEMUSTEXIST | FOS_SHAREAWARE | FOS_NOTESTFILECREATE | FOS_NODEREFERENCELINKS | FOS_FORCESHOWHIDDEN | FOS_DEFAULTNOMINIMODE);
+	enableAllWindowsExcept(parent);
+	return res;
+
+}
+
 char *uiSaveFile(uiWindow *parent)
 {
 	char *res;

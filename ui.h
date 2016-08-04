@@ -211,6 +211,7 @@ _UI_EXTERN uiSeparator *uiNewVerticalSeparator(void);
 typedef struct uiCombobox uiCombobox;
 #define uiCombobox(this) ((uiCombobox *) (this))
 _UI_EXTERN void uiComboboxAppend(uiCombobox *c, const char *text);
+_UI_EXTERN void uiComboboxReset(uiCombobox *c);
 _UI_EXTERN int uiComboboxSelected(uiCombobox *c);
 _UI_EXTERN void uiComboboxSetSelected(uiCombobox *c, int n);
 _UI_EXTERN void uiComboboxOnSelected(uiCombobox *c, void (*f)(uiCombobox *c, void *data), void *data);
@@ -270,6 +271,7 @@ _UI_EXTERN void uiMenuAppendSeparator(uiMenu *m);
 _UI_EXTERN uiMenu *uiNewMenu(const char *name);
 
 _UI_EXTERN char *uiOpenFile(uiWindow *parent);
+_UI_EXTERN char *uiOpenDir(uiWindow *parent);
 _UI_EXTERN char *uiSaveFile(uiWindow *parent);
 _UI_EXTERN void uiMsgBox(uiWindow *parent, const char *title, const char *description);
 _UI_EXTERN void uiMsgBoxError(uiWindow *parent, const char *title, const char *description);

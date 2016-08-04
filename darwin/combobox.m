@@ -81,6 +81,14 @@ void uiComboboxAppend(uiCombobox *c, const char *text)
 	[c->pbac addObject:toNSString(text)];
 }
 
+void uiComboboxReset(uiCombobox *c)
+{
+	NSRange range = NSMakeRange(0, [[c->pbac arrangedObjects] count]);
+	[c->pbac removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:range]];
+
+}
+
+
 int uiComboboxSelected(uiCombobox *c)
 {
 	return [c->pb indexOfSelectedItem];

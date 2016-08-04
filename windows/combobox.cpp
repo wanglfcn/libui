@@ -55,6 +55,12 @@ static void defaultOnSelected(uiCombobox *c, void *data)
 	// do nothing
 }
 
+void uiComboboxReset(uiCombobox *c)
+{
+	SendMessageW(c->hwnd, CB_RESETCONTENT, 0, 0);
+
+}
+
 void uiComboboxAppend(uiCombobox *c, const char *text)
 {
 	WCHAR *wtext;

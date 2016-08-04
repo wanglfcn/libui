@@ -46,6 +46,22 @@ char *uiOpenFile(uiWindow *parent)
 	return runSavePanel(windowWindow(parent), o);
 }
 
+char *uiOpenDir(uiWindow *parent)
+{
+	NSOpenPanel *o;
+
+	o = [NSOpenPanel openPanel];
+	[o setCanChooseFiles:NO];
+	[o setCanChooseDirectories:YES];
+	[o setCanCreateDirectories:YES];
+	[o setResolvesAliases:NO];
+	[o setAllowsMultipleSelection:NO];
+	setupSavePanel(o);
+	// panel is autoreleased
+	return runSavePanel(windowWindow(parent), o);
+
+}
+
 char *uiSaveFile(uiWindow *parent)
 {
 	NSSavePanel *s;
